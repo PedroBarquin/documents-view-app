@@ -75,9 +75,6 @@ function checkUserActivity() {
                     notificationMessage.innerText = '';
                     const data = JSON.parse(event.data);
                     const mappedData = userActivityListMapper(data);
-                    if (mappedData.Timestamp) {
-                        console.log('New document received from user:', mappedData.UserName);
-                    }
                     notificationButton.style.display = 'absolute';
                     notificationNumber.innerText = `${mappedData.Timestamp.getMinutes}`;
                     notificationMessage.innerText = `Minutes ago. New document received from user: ${mappedData.UserName}`;
@@ -122,35 +119,6 @@ function checkNewDocuments() {
         }
     });
 }
-function renderAddTableDocsPopup() {
-    const newRow = document.createElement('tr');
-    const addFirstCell = document.createElement('td');
-    const addSecondCell = document.createElement('td');
-    const addThirdCell = document.createElement('td');
-    const tittleCell = document.createElement('div');
-    const tittleCellVersion = document.createElement('div');
-    /**
-    
-    tittleCell.textContent = doc.Title;
-    tittleCellVersion.textContent = doc.Version;
-    
-    
-    addFirstCell.appendChild(tittleCell).appendChild(tittleCellVersion);
-    newRow.appendChild(addFirstCell);
-    addSecondCell.textContent = doc.Contributors.map(contributor => `${contributor.Name || contributor.ID}`).join(' ')
-    newRow.appendChild(addSecondCell);
-    addThirdCell.textContent = doc.Attachments.join(', ')
-    newRow.appendChild(addThirdCell);
-
-    container.appendChild(newRow);
-     *
-     */
-    return [];
-}
-function changeOrderSelect(docs) {
-    if (selectOption.value) {
-    }
-}
 function renderDocumentRow(doc) {
     const newRow = document.createElement('tr');
     const addFirstCell = document.createElement('td');
@@ -180,17 +148,14 @@ function addDocumentToTable(doc) {
     tableBody.appendChild(newRow);
 }
 function tableDisplayToggle() {
-    var _a, _b;
     let isFirstState = true;
     if ((tableTitles === null || tableTitles === void 0 ? void 0 : tableTitles.style.display) === 'none') {
         tableBody.classList.toggle('vertical-layout');
         tableTitles.style.display = 'block';
-        console.log((_a = document.getElementById("table-titles")) === null || _a === void 0 ? void 0 : _a.style, 'paso 1');
     }
     else {
         (tableTitles === null || tableTitles === void 0 ? void 0 : tableTitles.style.display) !== null ? (tableTitles === null || tableTitles === void 0 ? void 0 : tableTitles.style.display) === 'none' : '';
         tableBody.classList.toggle('horizontal-layout');
-        console.log((_b = document.getElementById("table-titles")) === null || _b === void 0 ? void 0 : _b.style.display, 'paso 2');
     }
     isFirstState = true;
 }
@@ -242,7 +207,6 @@ function initializeTable(documentList) {
         });
         toggleLayoutButton.addEventListener('click', () => {
             tableTitles.style.display = 'table-header-group';
-            console.log('paso 1');
             //tableBody.classList.toggle('vertical-layout'); 
             //tableDisplayToggle();
         });
@@ -287,8 +251,5 @@ function initializeTable(documentList) {
 }
 document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void 0, function* () {
     let documentList = (yield fetchDocuments()) || [];
-    console.log(documentList);
     initializeTable(documentList);
 }));
-// Initialize the document table when the page loads
-//window.addEventListener('load', initializeTable());

@@ -71,9 +71,6 @@ let documentsToAdd: DocumentResponseModel[] = [];
               notificationMessage.innerText = '';
             const data = JSON.parse(event.data);
             const mappedData = userActivityListMapper(data);
-            if (mappedData.Timestamp) {
-              console.log('New document received from user:', mappedData.UserName);
-            }
             notificationButton.style.display = 'absolute'
             notificationNumber.innerText = `${mappedData.Timestamp.getMinutes}`;
             notificationMessage.innerText = `Minutes ago. New document received from user: ${mappedData.UserName}`
@@ -164,11 +161,9 @@ function tableDisplayToggle() {
   if(tableTitles?.style.display === 'none'){
     tableBody.classList.toggle('vertical-layout'); 
     tableTitles.style.display = 'block';
-    console.log( document.getElementById("table-titles")?.style, 'paso 1');
   } else {
     tableTitles?.style.display !== null ? tableTitles?.style.display ===  'none' : '';
    tableBody.classList.toggle('horizontal-layout');
-   console.log( document.getElementById("table-titles")?.style.display, 'paso 2');
    
   }
   isFirstState = true;
@@ -230,7 +225,6 @@ async function initializeTable(documentList: DocumentResponseModel[]) {
   } )
   toggleLayoutButton.addEventListener('click', () => {
     tableTitles.style.display = 'table-header-group';
-    console.log('paso 1')
     //tableBody.classList.toggle('vertical-layout'); 
     //tableDisplayToggle();
   });
@@ -284,7 +278,6 @@ async function initializeTable(documentList: DocumentResponseModel[]) {
 document.addEventListener('DOMContentLoaded', async () => {
   
   let documentList: DocumentResponseModel[] = await fetchDocuments() || [];
-  console.log(documentList);
   initializeTable(documentList);
   
 })
