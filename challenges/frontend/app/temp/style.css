@@ -1,0 +1,66 @@
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #153, #4e088e);
+    padding: 10px;
+}
+
+.todo-app{
+    width: 100%;
+    max-width: 200px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px;
+  }
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: 50px repeat(3, 80px) 60px;
+    gap: 5px
+}
+.grid-2{
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: 50px repeat(1, 80px) 60px;
+}
+
+.todo-app h2{
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.document-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .document-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .document-card p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
