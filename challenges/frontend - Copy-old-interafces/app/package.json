@@ -1,0 +1,20 @@
+{
+    "name": "typescript-document-list-app",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "tsc --watch",
+        "format": "prettier --write \"src/**/*.{ts,js}\"",
+        "lint": "prettier --check \"src/**/*.{ts,js}\"",
+        "test": "to be implemented"
+    },
+    "type": "module",
+    "devDependencies": {
+        "@eslint/js": "^9.10.0",
+        "eslint": "^9.10.0",
+        "prettier": "^2.2.1",
+        "typescript": "5.6.2",
+        "globals": "^15.9.0",
+        "typescript-eslint": "^8.4.0"
+    }
+}

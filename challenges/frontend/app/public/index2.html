@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Manager</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<div>
+    <div class="document-manager">
+            <div class="header">
+            <h1>Documents</h1>
+            <div id="notification">
+                <span class="notification-icon">🔔</span>
+                <span class="notification-badge" id="notification-number"></span>
+                <div id="notification-message"></div>
+            </div>
+            </div>
+            <div class="controls">
+            <div class="sort">
+                <span>Sort by:</span>
+                <select id="selectOption">
+                    <option>Select one...</option>
+                    <option value="Name">Name</option>
+                    <option value="Date">Date</option>
+                    <option value="Size">Size</option>
+                </select>
+            </div>
+            <div class="view-options" id="toggle-buttons">
+                <button class="view-option active" id="default-toggle">☰</button>
+                <button class="view-option" id="second-toggle">▦</button>
+            </div>
+            </div>
+            <table class="document-table">
+                <thead id="table-titles">
+                    <tr id="table-tr">
+                    <th>Name</th>
+                    <th>Contributors</th>
+                    <th>Attachments</th>
+                    </tr>
+                </thead>
+                <tbody id="document-list-table">
+                </tbody>
+            </table>
+            <button class="myPopup" id="add-new-document-button">+ Add document</button>
+    </div>
+        <div id="add-document-form" class="modal">
+            <form class="modal-overlay">
+                <div class="modal-box">
+                <h2>Add New Document</h2>
+                <table class="document-table">
+                    <thead id="add-table-titles">
+                        <tr id="table-tr">
+                        <th>Name</th>
+                        <th>Contributors</th>
+                        <th>Attachments</th>
+                        </tr>
+                    </thead>
+                    <tbody id="add-document-list-table">
+                    </tbody>
+                </table>
+                <label for="document-id">Document Name:</label>
+                <input type="text" id="add-document-id">
+                <br><br>
+                <label for="document-name">Document Contributors:</label>
+                <input type="text" id="add-document-name">
+                <br><br>
+                <label for="document-id">Attachments:</label>
+                <input type="text" id="add-document-id">
+                <br><br>
+                <button id="save-documents"></button>
+                <button id="submit-document">Submit</button>
+                <button id="cancel-document">Cancel</button>
+             </div>
+            </form>
+        </div>
+    
+    <script src="../dest/document-manager0-copy.js"></script>
+</body>
+</html>

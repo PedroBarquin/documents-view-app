@@ -1,0 +1,61 @@
+/* Add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+.document-manager {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.notification {
+    position: relative;
+}
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: #1a73e8;
+    border-radius: 50%;
+}
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.document-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.document-table th, .document-table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.document-name {
+    font-weight: bold;
+}
+.document-version {
+    color: #5f6368;
+    font-size: 0.9em;
+}
+.add-document {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    color: #1a73e8;
+    cursor: pointer;
+}
