@@ -49,7 +49,6 @@ let documents: DocumentResponseModel[] = [];
 let documentsToAdd: DocumentResponseModel[] = [];
   async function fetchDocuments(): Promise<DocumentResponseModel[] | undefined> {
     try {
-        //find endpoint
         const response = await fetch('http://localhost:8080/documents')
         if(!response.ok){
             throw new Error(`HTTP ERROR STATUS ${response.status}`)
@@ -84,12 +83,10 @@ let documentsToAdd: DocumentResponseModel[] = [];
 
           socket.send('Connection established from user ')
           
-          // Handle errors
           socket.onerror = (error) => {
             console.error('WebSocket error:', error);
           };
           
-          // Handle connection close
           socket.onclose = () => {
             console.log('WebSocket connection closed');
           };
@@ -155,20 +152,7 @@ function addDocumentToTable(doc: DocumentResponseModel) {
   tableBody.appendChild(newRow);
 }
 
-function tableDisplayToggle() {
-  let isFirstState: boolean = true;
-  
-  if(tableTitles?.style.display === 'none'){
-    tableBody.classList.toggle('vertical-layout'); 
-    tableTitles.style.display = 'block';
-  } else {
-    tableTitles?.style.display !== null ? tableTitles?.style.display ===  'none' : '';
-   tableBody.classList.toggle('horizontal-layout');
-   
-  }
-  isFirstState = true;
 
-}
 
 function removeChildNodes() {
   while (tableBody?.firstChild) {
@@ -210,6 +194,7 @@ function orderTable(documentList: DocumentResponseModel[]){
     }
   }
 }
+
 // Function to initialize the table with fetched documents
 async function initializeTable(documentList: DocumentResponseModel[]) {
  
@@ -219,36 +204,21 @@ async function initializeTable(documentList: DocumentResponseModel[]) {
   setInterval(checkUserActivity, 5000);
   firstButtonToggle.addEventListener('click', () => {
     tableTitles.style.display = 'none';
-    //tableBody.classList.toggle('horizontal-layout'); 
-    //tableDisplayToggle();
-    
   } )
   toggleLayoutButton.addEventListener('click', () => {
     tableTitles.style.display = 'table-header-group';
-    //tableBody.classList.toggle('vertical-layout'); 
-    //tableDisplayToggle();
   });
 
   addButton.addEventListener('click', () => {
     formDiv.style.display = 'flex';
-    //formDiv.appendChild(renderAddTableDocsPopup())
   })
 
   selectOption.addEventListener('click', () => {
     orderTable(documentList)
-    //formDiv.style.display = 'flex';
-    //formDiv.appendChild(renderAddTableDocsPopup())
   })
 
-  // Populate the table
-  // Show the form when the "Add New Document" button is clicked
- // addButton.addEventListener('click', () => {
-  //  formDiv.style.display = 'block'; // Show the form
-  //});
-  
-  // Hide the form when the "Cancel" button is clicked
   cancelButton.addEventListener('click', () => {
-    formDiv.style.display = 'none'; // Hide the form
+    formDiv.style.display = 'none'; 
   });
   
   // Handle form submission for adding a new document
@@ -257,17 +227,6 @@ async function initializeTable(documentList: DocumentResponseModel[]) {
     const documentName = (document.getElementById('document-name') as HTMLInputElement).value;
   
     if (documentId && documentName) {
-      // Add the new document to the array
-      //documents.push();
-  
-      // Update the table with the new document
-      //addDocumentToTable(documentId, documentName);
-  
-      // Clear the input fields
-      //(document.getElementById('document-id') as HTMLInputElement).value = '';
-      //(document.getElementById('document-name') as HTMLInputElement).value = '';
-  
-      // Hide the form after submission
       formDiv.style.display = 'none';
     } else {
       alert('Please fill in both the Document ID and Name');
