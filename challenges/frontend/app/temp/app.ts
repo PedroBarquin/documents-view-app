@@ -1,4 +1,4 @@
-import { DocumentResponseModel } from "./get-document-list-model"
+import { DocumentResponseModel } from "../src/get-document-list-model"
 
 const documentListMapper = (documentList: any[]): DocumentResponseModel[] => {
     
@@ -79,27 +79,5 @@ export async function returnDocuments(){
         console.log("Failed to fetch documents: ", error)
     }
 };
-
-/** @type {*}
-const appHTMLElements = {
-    $: {
-        menu: document.querySelector('[data-id="document-container"]'),
-        menuItems: document.querySelector('[data-id=".grid"]'),
-        firstBtn: document.querySelector('[data-id="first-button"]'),
-        secondBtn: document.querySelector('[data-id="second-button"]'),
-    },
-    init() {
-        appHTMLElements.$.menu.addEventListener("click", (event) => {
-            appHTMLElements.$.menuItems.classList.toggle("hidden");
-        });
-        appHTMLElements.$.firstBtn.addEventListener("click", (event) => {
-            appHTMLElements.$.menuItems.classList.toggle("hidden");
-        });
-        appHTMLElements.$.secondBtn.addEventListener("click", (event) => {
-            appHTMLElements.$.menuItems.classList.toggle("hidden");
-        });
-    }
-    //window.addEventListener("load", appHTMLElements.init);
-    }  */
     
 returnDocuments()

@@ -1,4 +1,4 @@
-import { DocumentResponseModel } from "./get-document-list-model";
+import { DocumentResponseModel } from "../src/get-document-list-model";
 
 function renderAddTableDocsPopup():DocumentResponseModel[] {
     const newRow = document.createElement('tr');

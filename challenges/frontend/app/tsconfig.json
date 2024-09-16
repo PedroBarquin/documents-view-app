@@ -1,5 +1,5 @@
 {
-  "include": ["src", "types"],
+  "include": ["src", "types", "temp/render-app-component.ts", "temp/app.ts", "temp/document-list-service-mapper.ts", "temp/document-list-service.ts"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
